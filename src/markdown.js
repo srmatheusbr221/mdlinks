@@ -62,10 +62,20 @@ export function parseMarkdown(markdown) {
     anchors.add(n === 0 ? slug : `${slug}-${n}`);
   };
 
-  for (const { text, line } of proseLines(markdown)) {
+  const lines = proseLines(markdown);
+  for (let i = 0; i < lines.length; i++) {
+    const { text, line } = lines[i];
     // headings: # Title, ## Title ##
     const h = /^ {0,3}#{1,6}\s+(.*?)(?:\s+#+)?\s*$/.exec(text);
     if (h) addAnchor(slugify(h[1]));
+
+    // setext headings: a non-blank line underlined with === (h1) or --- (h2).
+    // A blank line before the underline makes --- a thematic break instead.
+    const next = lines[i + 1]?.text;
+    if (text.trim() && next && !/^ {0,3}#{1,6}\s/.test(text)) {
+      const setext = /^ {0,3}(=+|-+)\s*$/.exec(next);
+      if (setext) addAnchor(slugify(text));
+    }
 
     const clean = blankInlineCode(text);
 

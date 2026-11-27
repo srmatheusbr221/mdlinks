@@ -62,7 +62,7 @@ GitHub Actions:
 | `https://...` | only with `--http` (HEAD, then GET if the server dislikes HEAD) |
 | `mailto:`, `tel:`, `data:` | skipped |
 
-Heading slugs follow GitHub's rules (lowercase, punctuation dropped, spaces to hyphens, repeated headings get `-1`, `-2`). Links inside code blocks and inline code are ignored, since those are usually examples.
+Heading slugs follow GitHub's rules (lowercase, punctuation dropped, spaces to hyphens, repeated headings get `-1`, `-2`). Both ATX (`# Title`) and setext (`Title` underlined with `===` or `---`) headings count as anchors. Links inside code blocks and inline code are ignored, since those are usually examples.
 
 ## Limits
 
