@@ -85,6 +85,34 @@ test('parseMarkdown: anchors from headings, duplicates and html ids', () => {
   assert.deepEqual([...anchors].sort(), ['closing-hashes', 'custom', 'legacy', 'title', 'usage', 'usage-1']);
 });
 
+test('parseMarkdown: setext headings become anchors', () => {
+  const { anchors } = parseMarkdown([
+    'Title',
+    '=====',
+    '',
+    'Subtitle',
+    '---------',
+    '',
+    'Text before a rule',
+    '',
+    '---',
+    '',
+    '[link](#title) [link](#subtitle)',
+  ].join('\n'));
+  assert.deepEqual([...anchors].sort(), ['subtitle', 'title']);
+});
+
+test('checkFiles: setext headings satisfy #anchors', () => {
+  const dir = project({
+    'README.md': 'Title\n=====\n\nSee [the title](#title).\n',
+  });
+  try {
+    assert.deepEqual(checkFiles(findMarkdownFiles(['.'], dir), { cwd: dir }), []);
+  } finally {
+    cleanup(dir);
+  }
+});
+
 test('checkFiles: finds missing files and missing anchors, with line numbers', () => {
   const dir = project({
     'README.md': [

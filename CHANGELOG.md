@@ -1,5 +1,9 @@
 # Changelog
 
+## Unreleased
+
+- Fix: setext headings (`Title` followed by `===` or `---`) now count as anchors
+
 ## 0.1.1
 
 - Fix: footnote definitions (`[^1]: text`) were reported as broken links
