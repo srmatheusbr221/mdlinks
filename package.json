@@ -1,0 +1,26 @@
+{
+  "name": "mdlinks",
+  "version": "0.1.0",
+  "description": "Find broken relative links and #anchors in Markdown files. Optionally checks http links too.",
+  "type": "module",
+  "bin": {
+    "mdlinks": "./bin/mdlinks.js"
+  },
+  "files": ["bin", "src"],
+  "scripts": {
+    "test": "node --test"
+  },
+  "engines": {
+    "node": ">=20"
+  },
+  "keywords": ["markdown", "links", "broken-links", "link-checker", "docs", "cli"],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/srmatheusbr221/mdlinks.git"
+  },
+  "bugs": {
+    "url": "https://github.com/srmatheusbr221/mdlinks/issues"
+  },
+  "homepage": "https://github.com/srmatheusbr221/mdlinks#readme",
+  "license": "MIT"
+}
