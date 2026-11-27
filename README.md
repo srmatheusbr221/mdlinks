@@ -82,10 +82,6 @@ See [CONTRIBUTING.md](CONTRIBUTING.md). Check out the issues labelled `good firs
 
 This repo runs mdlinks on its own README in CI, so if you break a link here the build tells you.
 
-## About AI assistance
-
-I wrote this together with an AI coding assistant (Claude Code). I ran it, read it and changed things by hand, and the tests are the part I rely on. Bug reports are welcome whoever wrote the buggy line.
-
 ## License
 
 MIT

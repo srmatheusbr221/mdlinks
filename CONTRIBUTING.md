@@ -34,7 +34,3 @@ Most bugs here are "this valid Markdown produced a wrong result". If you can, ad
 ## Network code
 
 Tests must never hit the real network. `checkExternal` takes a `fetchImpl` for exactly that, see the existing tests.
-
-## AI tools
-
-Fine to use. Read and run what comes out of them, and mention the tool in the PR description.
