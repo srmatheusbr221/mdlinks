@@ -47,6 +47,11 @@ test('parseMarkdown: inline links, images, reference links, autolinks', () => {
   ]);
 });
 
+test('parseMarkdown: footnote definitions are not links', () => {
+  const { links } = parseMarkdown('A note[^1].\n\n[^1]: Footnote text here.\n[ref]: real.md');
+  assert.deepEqual(links.map((l) => l.url), ['real.md']);
+});
+
 test('parseMarkdown: ignores links inside code fences and inline code', () => {
   const { links } = parseMarkdown([
     '```md',

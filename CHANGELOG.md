@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.1
+
+- Fix: footnote definitions (`[^1]: text`) were reported as broken links
+
 ## 0.1.0
 
 First public version.

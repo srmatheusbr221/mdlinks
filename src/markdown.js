@@ -79,7 +79,8 @@ export function parseMarkdown(markdown) {
     }
 
     // reference definitions: [id]: url "title"
-    const ref = /^ {0,3}\[[^\]]+\]:\s*(<[^>]*>|\S+)/.exec(clean);
+    // (footnote definitions look similar, "[^1]: text", but are not links)
+    const ref = /^ {0,3}\[(?!\^)[^\]]+\]:\s*(<[^>]*>|\S+)/.exec(clean);
     if (ref) links.push({ url: ref[1].replace(/^<|>$/g, ''), line, kind: 'reference' });
 
     // autolinks: <https://example.com>

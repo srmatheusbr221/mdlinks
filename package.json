@@ -1,6 +1,6 @@
-{
+﻿{
   "name": "mdlinks",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Find broken relative links and #anchors in Markdown files. Optionally checks http links too.",
   "type": "module",
   "bin": {
@@ -24,3 +24,4 @@
   "homepage": "https://github.com/srmatheusbr221/mdlinks#readme",
   "license": "MIT"
 }
+
